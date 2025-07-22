@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_delivery_rate_table_form" model="ir.ui.view">
+        <field name="name">delivery.rate.table.form</field>
+        <field name="model">delivery.rate.table</field>
+        <field name="arch" type="xml">
+            <form string="Tarifa de Envío">
+                <group>
+                    <field name="zip_code"/>
+                    <field name="zone"/>
+                    <field name="is_amba"/>
+                    <field name="max_weight"/>
+                    <field name="price"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_delivery_rate_table_tree" model="ir.ui.view">
+        <field name="name">delivery.rate.table.tree</field>
+        <field name="model">delivery.rate.table</field>
+        <field name="arch" type="xml">
+            <tree string="Tarifas">
+                <field name="zip_code"/>
+                <field name="zone"/>
+                <field name="is_amba"/>
+                <field name="max_weight"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_delivery_rate_root" name="Tarifas de Envío" sequence="10"/>
+    <menuitem id="menu_delivery_rate_table" name="Tarifas" parent="menu_delivery_rate_root" action="action_delivery_rate_table"/>
+
+    <record id="action_delivery_rate_table" model="ir.actions.act_window">
+        <field name="name">Tarifas de Envío</field>
+        <field name="res_model">delivery.rate.table</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
